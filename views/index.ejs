@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Page</title>
+
+    <link rel="stylesheet" href="../Style/index.css">
+
+    <script type="text/javascript">
+        $("#form1").submit(function (event) {
+
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/',
+                data: $('#form1').serialize(),
+                dataType: "json",
+                success: function (reponse) {
+                    $('$form1')[0].reset();
+
+                    document.getElementById("check").innerHTML = reponse.Success;
+                    setTimeout(function () {
+                        document.getElementById("check").innerHTML = "";
+                    }, 3000);
+
+
+                }
+
+
+
+
+            })
+
+
+
+
+
+
+
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+    <h2>My Weekly Coding Challenge : Sign in/up Form</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form id="form1" method="post">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+
+                <input type="email" placeholder="Email" required />
+                <input type="text" placeholder="UserName" required />
+                <input type="password" placeholder="Password" required />
+                <input type="password_Conf" placeholder="Password Confirmaion" required />
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="mssg bg-danger">
+            <span id="check"></span>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            Created with <i class="fa fa-heart"></i> by
+            <a target="_blank" href="https://florin-pop.com">HAMZA BRAIMI</a>
+            - Read how I created this and how you can join the challenge
+            <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+        </p>
+    </footer>
+    <script type="text/javascript" src="../Style/index.js"></script>
+</body>
+
+</html>
