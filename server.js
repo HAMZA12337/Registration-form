@@ -8,10 +8,10 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-var url="mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false";
+//var url="mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false";
 
 
-//cooncter app avec la base de donnee
+//connecter app avec la base de donnee
 mongoose.connect(url,function(err){
 if(err) console.log("Mauvais Fait !!");
 else console.log("Bien Fait !!");
@@ -26,7 +26,7 @@ console.log("Your server is startrd on "+PORT);
 //set of session
 var db=mongoose.connection;
 db.on('error',console.error.bind(console,'connection error'));
-db.once('open',function(){
+db.once('open ',function(){
 });
 
 
